@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: #eaeaee;
+}
+
+.ui.fixed.menu {
+  /* background-image: linear-gradient();
+   */
+  background: rgb(238, 174, 202);
+  background: linear-gradient(
+    193deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 0.7539390756302521) 100%
+  );
+}
+.ui.main.container {
+  margin-top: 7em;
+}
