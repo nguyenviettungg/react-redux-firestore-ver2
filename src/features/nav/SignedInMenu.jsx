@@ -12,7 +12,7 @@ const SignedInMenu = ({ signOut }) => {
   return (
     <Menu.Item position="right">
       <Image avatar spaced="right" src="/assets/images/user.png" />
-      <Dropdown pointing="top left" text="Tung">
+      <Dropdown pointing="top left" text="Tungdz">
         <DropdownMenu>
           <DropdownItem
             as={Link}

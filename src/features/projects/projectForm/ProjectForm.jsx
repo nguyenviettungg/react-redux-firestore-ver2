@@ -1,14 +1,14 @@
 import cuid from "cuid";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Button, Form, FormField, Header, Segment } from "semantic-ui-react";
+import { createProject, updateProject } from "../redux/projectActions";
 
-const ProjectForm = ({
-  setFormOpen,
-  setProjects,
-  createProject,
-  selectedProject,
-  updateProject,
-}) => {
+const ProjectForm = ({ match, history }) => {
+  const dispatch = useDispatch();
+  const selectedProject = useSelector((state) =>
+    state.project.projects.find((prj) => prj.id === match.params.id)
+  );
   const initialValues = selectedProject ?? {
     title: "",
     language: "",
@@ -20,14 +20,17 @@ const ProjectForm = ({
   const [values, setValues] = useState(initialValues);
   const handleFormSubmit = () => {
     selectedProject
-      ? updateProject({ ...selectedProject, ...values })
-      : createProject({
-          ...values,
-          id: cuid,
-          hostedBy: "Tung",
-          attendees: [],
-          hostPhotoURL: "https://randomuser.me/api/portraits/men/20.jpg",
-        });
+      ? dispatch(updateProject({ ...selectedProject, ...values }))
+      : dispatch(
+          createProject({
+            ...values,
+            id: cuid,
+            hostedBy: "Tung",
+            attendees: [],
+            hostPhotoURL: "https://randomuser.me/api/portraits/men/20.jpg",
+          })
+        );
+    history.push("/projects");
   };
 
   const handleInputChange = (e) => {

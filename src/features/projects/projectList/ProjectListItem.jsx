@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   Button,
@@ -9,8 +10,10 @@ import {
   Segment,
 } from "semantic-ui-react";
 import ProjectListAttendee from "./ProjectListAttendee";
+import { deleteProject } from "../redux/projectActions";
 
-const ProjectListItem = ({ project, selectProject, deleteProject }) => {
+const ProjectListItem = ({ project }) => {
+  const dispatch = useDispatch();
   return (
     <Segment.Group>
       <Segment>
@@ -43,12 +46,18 @@ const ProjectListItem = ({ project, selectProject, deleteProject }) => {
       <Segment clearing>
         <div>{project.description}</div>
         <Button
-          onClick={() => deleteProject(project.id)}
+          onClick={() => dispatch(deleteProject(project.id))}
           color="red"
           floated="right"
           content="Delete"
         ></Button>
-        <Button as={Link} to={`/projects/${project.id}`} color="teal" floated="right" content="View"></Button>
+        <Button
+          as={Link}
+          to={`/projects/${project.id}`}
+          color="teal"
+          floated="right"
+          content="View"
+        ></Button>
       </Segment>
     </Segment.Group>
   );

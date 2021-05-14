@@ -1,44 +1,58 @@
-import React from 'react'
-import { Button, Grid, Icon, Segment } from 'semantic-ui-react';
+import React from "react";
+import { Grid, Header, Icon, Segment } from "semantic-ui-react";
 
-const ProjectDetailedInfo = () => {
-    return (
-      <Segment.Group>
-        <Segment attached="top">
-          <Grid>
-            <Grid.Column width={1}>
-              <Icon size="large" color="teal" name="info" />
-            </Grid.Column>
-            <Grid.Column width={15}>
-              <p>Event Description</p>
-            </Grid.Column>
-          </Grid>
-        </Segment>
-        <Segment attached>
-          <Grid verticalAlign="middle">
-            <Grid.Column width={1}>
-              <Icon name="calendar" size="large" color="teal" />
-            </Grid.Column>
-            <Grid.Column width={15}>
-              <span>Event Date</span>
-            </Grid.Column>
-          </Grid>
-        </Segment>
-        <Segment attached>
-          <Grid verticalAlign="middle">
-            <Grid.Column width={1}>
-              <Icon name="marker" size="large" color="teal" />
-            </Grid.Column>
-            <Grid.Column width={11}>
-              <span>Event Venue</span>
-            </Grid.Column>
-            <Grid.Column width={4}>
-              <Button color="teal" size="tiny" content="Show Map" />
-            </Grid.Column>
-          </Grid>
-        </Segment>
-      </Segment.Group>
-    );
-}
+const ProjectDetailedInfo = ({ project }) => {
+  return (
+    <Segment.Group>
+      <Segment attached="top">
+        <Grid>
+          <Grid.Column width={1}>
+            <Icon size="large" color="teal" name="info" />
+          </Grid.Column>
+          <Grid.Column width={15}>
+            <Header as="h4" content="Mô tả :" />
+            <p>{project.description}</p>
+          </Grid.Column>
+        </Grid>
+      </Segment>
+      <Segment attached>
+        <Grid verticalAlign="middle">
+          <Grid.Column width={1}>
+            <Icon name="calendar" size="large" color="teal" />
+          </Grid.Column>
+          <Grid.Column width={15}>
+            <Header as="h4" content="Ngày tạo :" />
+            <span>{project.date}</span>
+          </Grid.Column>
+        </Grid>
+      </Segment>
+      <Segment attached>
+        <Grid verticalAlign="middle">
+          <Grid.Column width={1}>
+            <Icon name="marker" size="large" color="teal" />
+          </Grid.Column>
+          <Grid.Column width={11}>
+            <Header as="h4" content="Phòng ban quản lý :" />
+            <span>{project.department}</span>
+          </Grid.Column>
+          {/* <Grid.Column width={4}>
+            <Button disabled color="teal" size="tiny" content={project.typeApp} />
+          </Grid.Column> */}
+        </Grid>
+      </Segment>
+      <Segment attached>
+        <Grid verticalAlign="middle">
+          <Grid.Column width={1}>
+            <Icon name="tag" size="large" color="teal" />
+          </Grid.Column>
+          <Grid.Column width={11}>
+            <Header as="h4" content="Loại App :" />
+            <span>{project.typeApp}</span>
+          </Grid.Column>
+        </Grid>
+      </Segment>
+    </Segment.Group>
+  );
+};
 
-export default ProjectDetailedInfo
+export default ProjectDetailedInfo;

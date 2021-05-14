@@ -8,8 +8,7 @@ const ProjectList = ({ projects, selectProject, deleteProject }) => {
         <ProjectListItem
           project={project}
           key={project.id}
-          selectProject={selectProject}
-          deleteProject={deleteProject}
+          
         />
       ))}
     </>

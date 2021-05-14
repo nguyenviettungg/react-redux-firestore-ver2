@@ -16,12 +16,12 @@ const projectImageTextStyle = {
   color: "white",
 };
 
-const ProjectDetailedHeader = () => {
+const ProjectDetailedHeader = ({ project }) => {
   return (
     <Segment.Group>
       <Segment basic attached="top" style={{ padding: "0" }}>
         <Image
-          src={`/assets/category/c-sharp.jpg`}
+          src={`/assets/category/${project.language}.jpg`}
           fluid
           style={projectImageStyle}
         />
@@ -32,12 +32,12 @@ const ProjectDetailedHeader = () => {
               <Item.Content>
                 <Header
                   size="huge"
-                  content="Event Title"
+                  content={project.title}
                   style={{ color: "white" }}
                 />
-                <p>Event Date</p>
+                <p>{project.date}</p>
                 <p>
-                  Hosted by <strong>Bob</strong>
+                  Hosted by <strong>{project.hostedBy}</strong>
                 </p>
               </Item.Content>
             </Item>
@@ -46,16 +46,16 @@ const ProjectDetailedHeader = () => {
       </Segment>
 
       <Segment attached="bottom">
-        <Button>Cancel My Place</Button>
-        <Button color="teal">JOIN THIS EVENT</Button>
+        <Button>Cancel My Project</Button>
+        <Button color="teal">JOIN THIS PROJECT</Button>
 
         <Button
           as={Link}
-          to={`/manage/`}
+          to={`/manage/${project.id}`}
           color="orange"
           floated="right"
         >
-          Manage Event
+          Manage Project
         </Button>
       </Segment>
     </Segment.Group>

@@ -14,7 +14,7 @@ export const fakeData = [
       {
         id: "a",
         name: "TungHandsome",
-        photoURL: "https://randomuser.me/api/portraits/men/20.jpg",
+        photoURL: "",
       },
       {
         id: "b",
@@ -27,7 +27,7 @@ export const fakeData = [
     id: "2",
     title: "Trip to Punch and Judy Pub",
     date: "2021-03-18",
-    language: "ReactNative",
+    language: "C-Sharp",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
     typeApp: "Mobile App",

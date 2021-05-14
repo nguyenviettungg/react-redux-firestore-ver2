@@ -18,17 +18,17 @@ const NavBar = ({ setFormOpen }) => {
           <img
             src="/assets/images/logo.png"
             alt="logo"
-            style={{ marginRight: "15px" }}
+            style={{ marginRight: "30px" }}
           />
           T-Project
         </Menu.Item>
         <Menu.Item as={NavLink} to="/projects" name="Projects" />
+        <Menu.Item as={NavLink} to="/test" name="TestArea" />
         {authenticated && (
           <Menu.Item>
             <Button
               as={NavLink}
               to="/createProject"
-              onClick={() => setFormOpen(true)}
               positive
               inverted
               content="Create Project"

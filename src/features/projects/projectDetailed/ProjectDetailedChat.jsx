@@ -11,7 +11,7 @@ const ProjectDetailedChat = () => {
         color="teal"
         style={{ border: "none" }}
       >
-        <Header>Chat about this event</Header>
+        <Header>Chat about this project</Header>
       </Segment>
 
       <Segment attached>
