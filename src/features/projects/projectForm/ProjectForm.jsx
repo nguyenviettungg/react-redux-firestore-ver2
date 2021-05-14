@@ -95,7 +95,8 @@ const ProjectForm = ({
           />
         </FormField>
         <Button
-          onClick={() => setFormOpen(false)}
+          as="Link"
+          to="/projects"
           type="submit"
           floated="right"
           content="Cancel"

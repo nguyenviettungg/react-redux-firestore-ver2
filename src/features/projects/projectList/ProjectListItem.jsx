@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   Icon,
@@ -47,12 +48,7 @@ const ProjectListItem = ({ project, selectProject, deleteProject }) => {
           floated="right"
           content="Delete"
         ></Button>
-        <Button
-          onClick={() => selectProject(project)}
-          color="teal"
-          floated="right"
-          content="View"
-        ></Button>
+        <Button as={Link} to={`/projects/${project.id}`} color="teal" floated="right" content="View"></Button>
       </Segment>
     </Segment.Group>
   );
