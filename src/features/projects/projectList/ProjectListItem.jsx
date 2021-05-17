@@ -11,6 +11,7 @@ import {
 } from "semantic-ui-react";
 import ProjectListAttendee from "./ProjectListAttendee";
 import { deleteProject } from "../redux/projectActions";
+import { format } from "date-fns";
 
 const ProjectListItem = ({ project }) => {
   const dispatch = useDispatch();
@@ -23,17 +24,27 @@ const ProjectListItem = ({ project }) => {
             <Item.Content>
               <Item.Content content={project.title} />
               <ItemDescription>Hosted by {project.hostedBy}</ItemDescription>
+              {project.status === "active" ? (
+                <Button floated="right" basic color="green" animated>
+                  <Button.Content visible>Status</Button.Content>
+                  <Button.Content hidden>Active</Button.Content>
+                </Button>
+              ) : (
+                <Button floated="right" basic color="red" animated>
+                  <Button.Content visible>Status</Button.Content>
+                  <Button.Content hidden>Inactive</Button.Content>
+                </Button>
+              )}
             </Item.Content>
           </Item>
         </Item.Group>
       </Segment>
       <Segment>
         <span>
-          <Icon name="clock" /> {project.date}
-          <Icon name="clock" /> {project.department}
-          <Icon name="clock" /> {project.typeApp}
-          <Icon name="clock" /> {project.language}
-          {/* trung tam bo phan phong ban tao project */}
+          <Icon name="clock" /> {format(project.date, "MMMM d, yyyy h:mm a")}
+          <Icon name="marker" /> {project.department}
+          <Icon name="tag" /> {project.typeApp}
+          <Icon name="pencil alternate" /> {project.language}
         </span>
       </Segment>
       <Segment secondary>

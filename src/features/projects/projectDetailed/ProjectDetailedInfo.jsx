@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import React from "react";
 import { Grid, Header, Icon, Segment } from "semantic-ui-react";
 
@@ -22,7 +23,7 @@ const ProjectDetailedInfo = ({ project }) => {
           </Grid.Column>
           <Grid.Column width={15}>
             <Header as="h4" content="Ngày tạo :" />
-            <span>{project.date}</span>
+            <span> {format(project.date, "MMMM d, yyyy h:mm a")}</span>
           </Grid.Column>
         </Grid>
       </Segment>

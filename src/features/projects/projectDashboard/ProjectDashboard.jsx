@@ -15,7 +15,7 @@ const EventDashboard = () => {
         <ProjectList projects={projects} />
       </Grid.Column>
       <Grid.Column width={6}>
-        <h2>Event filters</h2>
+        <h2>Project filters</h2>
       </Grid.Column>
     </Grid>
   );

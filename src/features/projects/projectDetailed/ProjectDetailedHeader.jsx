@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Header, Image, Item, Segment } from "semantic-ui-react";
+import { format } from "date-fns";
 
 const projectImageStyle = {
   filter: "brightness(30%)",
@@ -35,7 +36,7 @@ const ProjectDetailedHeader = ({ project }) => {
                   content={project.title}
                   style={{ color: "white" }}
                 />
-                <p>{project.date}</p>
+                <p> {format(project.date, "MMMM d, yyyy h:mm a")}</p>
                 <p>
                   Hosted by <strong>{project.hostedBy}</strong>
                 </p>

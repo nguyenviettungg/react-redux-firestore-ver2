@@ -7,6 +7,7 @@ import ProjectDashboard from "../../features/projects/projectDashboard/ProjectDa
 import ProjectDetailedPage from "../../features/projects/projectDetailed/ProjectDetailedPage";
 import ProjectForm from "../../features/projects/projectForm/ProjectForm";
 import TestBox from "../../features/test/TestBox";
+import ModalManager from "../common/modals/ModalManager";
 
 const App = () => {
   const { key } = useLocation();
@@ -18,6 +19,7 @@ const App = () => {
         render={() => (
           <>
             <NavBar />
+            <ModalManager />
             <Container className="main">
               <Route exact path="/projects" component={ProjectDashboard} />
               <Route path="/projects/:id" component={ProjectDetailedPage} />
