@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, useLocation } from "react-router";
+import { ToastContainer } from "react-toastify";
 import { Container } from "semantic-ui-react";
 import HomePage from "../../features/home/HomePage";
 import NavBar from "../../features/nav/NavBar";
@@ -13,13 +14,15 @@ const App = () => {
   const { key } = useLocation();
   return (
     <>
+      <ModalManager />
+      <ToastContainer position="bottom-right" />
       <Route exact path="/" component={HomePage} />
       <Route
         path={"/(.+)"}
         render={() => (
           <>
             <NavBar />
-            <ModalManager />
+
             <Container className="main">
               <Route exact path="/projects" component={ProjectDashboard} />
               <Route path="/projects/:id" component={ProjectDetailedPage} />

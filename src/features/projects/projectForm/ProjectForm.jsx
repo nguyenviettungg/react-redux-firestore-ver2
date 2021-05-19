@@ -10,6 +10,7 @@ import MyTextArea from "../../../app/common/form/MyTextArea";
 import MySelectInput from "../../../app/common/form/MySelectInput";
 import { language, typeOfApp, status } from "../../../app/api/options";
 import MyDateInput from "../../../app/common/form/MyDateInput";
+import { Link } from "react-router-dom";
 
 const ProjectForm = ({ match, history }) => {
   const dispatch = useDispatch();
@@ -91,7 +92,7 @@ const ProjectForm = ({ match, history }) => {
 
             <Button
               disabled={isSubmitting}
-              as="Link"
+              as={Link}
               to="/projects"
               type="submit"
               floated="right"

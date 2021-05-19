@@ -1,8 +1,13 @@
-import { fakeData } from "../../../app/api/fakeData";
-import { CREATE_PROJECT, DELETE_PROJECT, UPDATE_PROJECT } from "./typeActions";
+// import { fakeData } from "../../../app/api/fakeData";
+import {
+  CREATE_PROJECT,
+  DELETE_PROJECT,
+  FETCH_PROJECTS,
+  UPDATE_PROJECT,
+} from "./typeActions";
 
 const initialState = {
-  projects: fakeData,
+  projects: [],
 };
 
 const projectReducer = (state = initialState, { type, payload }) => {
@@ -12,12 +17,20 @@ const projectReducer = (state = initialState, { type, payload }) => {
     case UPDATE_PROJECT:
       return {
         ...state,
-        projects: [...state.projects.filter((prj) => prj.id !== payload.id),payload],
+        projects: [
+          ...state.projects.filter((prj) => prj.id !== payload.id),
+          payload,
+        ],
       };
     case DELETE_PROJECT:
       return {
         ...state,
         projects: [...state.projects.filter((prj) => prj.id !== payload)],
+      };
+    case FETCH_PROJECTS:
+      return {
+        ...state,
+        projects: payload,
       };
     default:
       return state;

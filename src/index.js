@@ -8,8 +8,12 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { configureStore } from "./app/store/configureStore";
 import ScrollToTop from "./app/layout/ScrollToTop";
+import "react-toastify/dist/ReactToastify.min.css";
+import { loadProjects } from "./features/projects/redux/projectActions";
 
 const store = configureStore();
+
+store.dispatch(loadProjects());
 
 console.log(store.getState());
 
